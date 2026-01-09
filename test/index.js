@@ -4537,9 +4537,28 @@ test('roundtrip', async function (t) {
   })
 
   await t.test(
-    'should roundtrip underscore inside of words',
+    'should roundtrip underscore without escaping',
     async function () {
-      const value = 'HELLO_WORLD https://some/web_site\n'
+      const value = `Separate paragraphs:
+
+HELLO_WORLD https://some/web_site
+
+HELLO_WORLD. HELLO_WORLD, H_W; HELLO_OTHER! HELLO_YES? HELLO_NO
+
+HELLO_WORLD.HELLO_WORLD,H_W;HELLO_OTHER!HELLO_YES?HELLO_NO
+
+HELLO_WORLD - THIS_GOOD
+
+HELLO_WORLD-THIS_GOOD
+
+One Paragraph:
+
+HELLO_WORLD https://some/web_site
+HELLO_WORLD. HELLO_WORLD, H_W; HELLO_OTHER! HELLO_YES? HELLO_NO
+HELLO_WORLD.HELLO_WORLD,H_W;HELLO_OTHER!HELLO_YES?HELLO_NO
+HELLO_WORLD - THIS_GOOD
+HELLO_WORLD-THIS_GOOD
+`
 
       assert.equal(to(from(value)), value)
     }
