@@ -3895,6 +3895,39 @@ test('escape', async function (t) {
     }
   )
 
+  await t.test('should escape underscore at word start', async function () {
+    assert.equal(
+      to({
+        type: 'paragraph',
+        children: [{type: 'text', value: '_WORLD'}]
+      }),
+      '\\_WORLD\n'
+    )
+  })
+
+  await t.test('should escape underscore at word end', async function () {
+    assert.equal(
+      to({
+        type: 'paragraph',
+        children: [{type: 'text', value: 'HELLO_'}]
+      }),
+      'HELLO\\_\n'
+    )
+  })
+
+  await t.test(
+    'should not escape underscore inside of word',
+    async function () {
+      assert.equal(
+        to({
+          type: 'paragraph',
+          children: [{type: 'text', value: 'HELLO_WORLD'}]
+        }),
+        'HELLO_WORLD\n'
+      )
+    }
+  )
+
   await t.test(
     'should escape what would otherwise be a heading (atx)',
     async function () {
@@ -4502,6 +4535,15 @@ test('roundtrip', async function (t) {
       removePosition(from(to(from(value))))
     )
   })
+
+  await t.test(
+    'should roundtrip underscore inside of words',
+    async function () {
+      const value = 'HELLO_WORLD https://some/web_site\n'
+
+      assert.equal(to(from(value)), value)
+    }
+  )
 
   await t.test(
     'should roundtrip a sole blank line in fenced code',
