@@ -4541,6 +4541,10 @@ test('roundtrip', async function (t) {
     async function () {
       const value = `Separate paragraphs:
 
+:heavy_check_mark:
+
+[HELLO_WORLD.md](HELLO_WORLD.md)
+
 HELLO_WORLD https://some/web_site
 
 HELLO_WORLD. HELLO_WORLD, H_W; HELLO_OTHER! HELLO_YES? HELLO_NO
@@ -4553,6 +4557,8 @@ HELLO_WORLD-THIS_GOOD
 
 One Paragraph:
 
+:heavy_check_mark:
+[HELLO_WORLD.md](HELLO_WORLD.md)
 HELLO_WORLD https://some/web_site
 HELLO_WORLD. HELLO_WORLD, H_W; HELLO_OTHER! HELLO_YES? HELLO_NO
 HELLO_WORLD.HELLO_WORLD,H_W;HELLO_OTHER!HELLO_YES?HELLO_NO
