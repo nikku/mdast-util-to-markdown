@@ -4848,6 +4848,20 @@ a __\\_ is this emphasis? __\\_
 
 a _\\__ is this emphasis? _\\__
 
+a _ is_this emphasis? _
+
+a __ is_this emphasis? __
+
+a ___ is_this emphasis? ___
+
+a _\\_ is_this emphasis? _\\_
+
+a \\__ is_this emphasis? \\__
+
+a __\\_ is_this emphasis? __\\_
+
+a _\\__ is_this emphasis? _\\__
+
 One paragraph:
 
 a _ is this emphasis? _
@@ -4856,7 +4870,15 @@ a ___ is this emphasis? ___
 a _\\_ is this emphasis? _\\_
 a \\__ is this emphasis? \\__
 a __\\_ is this emphasis? __\\_
-a _\\__ is this emphasis? _\\__`
+a _\\__ is this emphasis? _\\__
+
+a _ is_this emphasis? _
+a __ is_this emphasis? __
+a ___ is_this emphasis? ___
+a _\\_ is_this emphasis? _\\_
+a \\__ is_this emphasis? \\__
+a __\\_ is_this emphasis? __\\_
+a _\\__ is_this emphasis? _\\__`
     const tree = from(value)
 
     assert.deepEqual(
